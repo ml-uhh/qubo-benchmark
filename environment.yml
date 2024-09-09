@@ -1,0 +1,26 @@
+name: qubo_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - jupyter
+  - ca-certificates
+  - openssl
+  - qiskit=1.1
+  - pylatexenc
+  - certifi
+  - autograd
+  - cvxpy
+  - dimod
+  - regex
+  - cupy
+  - pip:
+    - dimod
+    - dwave-system
+    - qiskit-algorithms
+    - qiskit
+    - azure-quantum
+    - gurobipy
+    - gurobi-optimods
+    - timedout-decorator
