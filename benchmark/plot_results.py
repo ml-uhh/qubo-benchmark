@@ -19,5 +19,10 @@ if __name__ == '__main__':
             
 
     res = pd.concat(ress, ignore_index=True)
+    res[res['success'] == False]['loss'] = float('inf')
+    opt = res.groupby('task')['loss'].transform('min')
+    successes = res.groupby('task')['loss'].transform(lambda x: (x - x.min()) / (abs(x.min()) + 1))
+    res['relative_loss'] = successes
+    res = res.sort_values(['task', 'solver'])
     print(res)
     print(res.groupby('task')[['bipartite', 'planar']].sum())

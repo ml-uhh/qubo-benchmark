@@ -145,12 +145,14 @@ from dwave.cloud import Client
 from dwave.system import DWaveSampler, EmbeddingComposite
 from dimod import BQM
 
+token = 'DEV-42a3b7ec68e6c9a8978cc4a1ff7c3051b87cd1e5'    
+dwave_sampler = DWaveSampler(token=token)
+
 def dwave_minimize(Q, time_limit=None):
-    token = 'DEV-b353c58fbf31b9f53e2259c601481d55026b113f'
     #sampler = cl.get_solver()
     bqm = BQM.from_qubo(Q)
     try:
-        sampleset = EmbeddingComposite(DWaveSampler(token=token)).sample(bqm, num_reads=1000, embedding_parameters=dict(timeout=time_limit))
+        sampleset = EmbeddingComposite(dwave_sampler).sample(bqm, num_reads=1000, embedding_parameters=dict(timeout=300))#time_limit))
         res = sampleset.lowest().first.sample
         res = np.array([ x[1] for x in sorted(res.items()) ])
         assert np.all((res == 0) | (res == 1))

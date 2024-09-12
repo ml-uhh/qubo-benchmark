@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     time_limit = 3600
 
-    dwave_time = dict(time=0)
+    dwave_time = dict(time=1.)
 
     solv_names = [
         ('gurobi_1s', lambda Q, time_limit: gurobi_minimize(Q, time_limit=1)),
