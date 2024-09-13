@@ -44,5 +44,5 @@ To run the benchmarking code, you will need:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/qubo-benchmarking.git
-   cd qubo-benchmarking
+   git clone https://github.com/ml-uhh/qubo-benchmark.git
+   cd qubo-benchmark
