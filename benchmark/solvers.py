@@ -145,7 +145,7 @@ from dwave.cloud import Client
 from dwave.system import DWaveSampler, EmbeddingComposite
 from dimod import BQM
 
-token = 'DEV-42a3b7ec68e6c9a8978cc4a1ff7c3051b87cd1e5'    
+token = 'DEV-a583c7cbea1c24e2b927d552f7c1f6fe3107d77f'
 dwave_sampler = DWaveSampler(token=token)
 
 def dwave_minimize(Q, time_limit=None):
