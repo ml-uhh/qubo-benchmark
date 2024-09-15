@@ -32,7 +32,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     from solvers import gurobi_minimize, azure_minimize, \
-        dwave_minimize
+        dwave_minimize, gurobi_frac_minimize
 
     time_limit = 3600
 
@@ -41,6 +41,7 @@ if __name__ == '__main__':
     solv_names = [
         ('gurobi_1s', lambda Q, time_limit: gurobi_minimize(Q, time_limit=1)),
         ('gurobi_10s', lambda Q, time_limit: gurobi_minimize(Q, time_limit=10)),
+        ('gurobi_frac', gurobi_frac_minimize),
         ('gurobi', gurobi_minimize),
         #('azure', azure_minimize),
         ('dwave', dwave_minimize),

@@ -16,6 +16,16 @@ def gurobi_minimize(Q, time_limit=None):
     x = res.solution
     return x
 
+def gurobi_frac_minimize(Q, time_limit=None):
+    m = gp.Model()
+    x = m.addMVar(Q.shape[0], lb=0., ub=1.)
+    m.setObjective(x@Q@x, gp.GRB.MINIMIZE)
+    m.setParam('OutputFlag', 0)
+    m.setParam('TimeLimit', time_limit)
+    m.optimize()
+
+    return x.X.round()
+    
 def random_cut(V):
     u = np.random.randn(V.shape[1])
     z = np.sign(V @ u)
