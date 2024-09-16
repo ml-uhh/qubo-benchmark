@@ -3,10 +3,7 @@ import pandas as pd
 import numpy as np
 import os
 from collections.abc import Iterator
-import importlib
-import cvxpy
 import networkx as nx
-import timeout_decorator
 
 def load_problem(fl: str)-> np.ndarray:
     data = np.load(fl)
@@ -31,8 +28,8 @@ if __name__ == '__main__':
     parser.add_argument('-u', '--update', action='store_true')
     args = parser.parse_args()
 
-    from solvers import gurobi_minimize, azure_minimize, \
-        dwave_minimize, gurobi_frac_minimize
+    from solvers import gurobi_minimize, \
+        dwave_minimize, geno_minimize
 
     time_limit = 3600
 
@@ -41,9 +38,8 @@ if __name__ == '__main__':
     solv_names = [
         ('gurobi_1s', lambda Q, time_limit: gurobi_minimize(Q, time_limit=1)),
         ('gurobi_10s', lambda Q, time_limit: gurobi_minimize(Q, time_limit=10)),
-        ('gurobi_frac', gurobi_frac_minimize),
+        ('genosolver', geno_minimize),
         ('gurobi', gurobi_minimize),
-        #('azure', azure_minimize),
         ('dwave', dwave_minimize),
         ('gurobi_dwtime', lambda Q, time_limit: gurobi_minimize(Q, time_limit=dwave_time['time']))
     ]

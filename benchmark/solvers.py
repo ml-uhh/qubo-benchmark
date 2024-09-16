@@ -1,15 +1,8 @@
-from autograd import value_and_grad
-import autograd.numpy as np
-import cvxpy as cp
 from gurobi_optimods.qubo import solve_qubo
 import gurobipy as gp
 import genosolver
+import numpy as np
 #import cupy as cnp
-
-def is_to_bin(Q, b):
-    c = 1/2*(Q@np.ones(Q.shape[0]) + b)
-    R = (1/4*Q + np.diag(c))
-    return R
 
 def gurobi_minimize(Q, time_limit=None):
     res = solve_qubo(Q, verbose=0, time_limit=time_limit)
@@ -25,79 +18,27 @@ def gurobi_frac_minimize(Q, time_limit=None):
     m.optimize()
 
     return x.X.round()
-    
-def random_cut(V):
-    u = np.random.randn(V.shape[1])
-    z = np.sign(V @ u)
-    z[z==0] = 1
-    return z
 
-import scipy
-
-def cvxpy_qubo(Q):
-    X = cp.Variable(Q.shape, symmetric=True)
-    constraints = [X >>0 , cp.diag(X) == 1]
-    prob = cp.Problem(cp.Minimize(cp.trace(Q @ X)), constraints)
-    return X, prob
-
-def cvxpy_minimize(Q, time_limit=None):
-    X, prob = cvxpy_qubo(Q)
-    if time_limit is not None:
-        prob.solve(cplex_params={"timelimit": time_limit})
-    else:
-        prob.solve()
-    U, s, _U = np.linalg.svd(X.value, hermitian=True)
-    V = U*np.sqrt(s)[...,None,:]
-    best = np.ones(Q.shape[0])
-    for _i in range(1000):
-        curr = random_cut(V)
-        if best @ Q @ best > curr @ Q @ curr:
-            best = curr
-    return best
-
-def g_qubo(Q):
-    def _g(x):
-        V = x.reshape(Q.shape[0],-1)
-        V1 = np.sum(V**2, axis=1)
-        Vb = np.outer(V1,V1)
-        return 2*((Q*Vb**-0.5) - np.diag((V@V.T*Q*Vb**-1.5)@V1))@V
-    return _g
-
-def fg_qubo(Q, lam=0.):
+def geno_fg(Q):
     def _fg(x):
-        V = x.reshape(Q.shape[0], -1)
-        V1 = np.sum(V*V, axis=1)
-        U = V@V.T
-        Vb = np.outer(V1,V1)
-        X = U*(Vb**-0.5)
-        XQ = X*Q
-
-        f = np.sum(XQ)
-        g = 2*((Q*Vb**-0.5) - np.diag((XQ*(Vb**-1))@V1))@V
-        return f, g.reshape(x.shape)
+        Qx = np.dot(Q,x)
+        return np.dot(x,Qx), 2*Qx
     return _fg
 
 def geno_minimize(Q, time_limit=None):
     n = len(Q)
-    x0 = np.random.randn(n,n).reshape(-1)
-    for lam in [ 0.]:# 1e-5, 1e-4, 1e-3, 0.005, 0.01, 0.05, 0.1, 1., 4., 16., 32. ]:
-        fg = fg_qubo(Q, lam=lam)
-        res = genosolver.minimize(fg, x0, np=np)
-        x0 = res.x
-    x = x0.reshape(n,n)
-    V = x/np.sqrt(np.sum(x*x, axis=1))[:,None]
-    X = V.dot(V.T)
-    best = np.ones(Q.shape[0])
-    for _i in range(1000):
-        curr = random_cut(V)
-        if best @ Q @ best > curr @ Q @ curr:
-            best = curr
-    z = best
-    #print(f'{np.sum(X * Q) = }')
-    #z = np.sign(V[:,0])
-    #z[z==0] = 1.
-    return z
+    fg = geno_fg(Q)
+    best = np.zeros(n)
+    for _i in range(10):
+        x0 = np.random.rand(n)
+        res = genosolver.minimize(fg, x0, lb=np.zeros_like(x0), ub=np.ones_like(x0), np=np)
+        x = res.x
+        x = np.round(x)
+        if np.dot(x, np.dot(Q, x)) < np.dot(best, np.dot(Q, best)):
+            best = x
+    return best
 
+"""
 import azure.quantum
 from azure.quantum import Workspace
 from azure.quantum.qiskit import AzureQuantumProvider
@@ -149,7 +90,7 @@ def azure_minimize(Q, time_limit=None):
         result = np.zeros(n)-1
     #print(result)
     return result
-
+"""
 
 from dwave.cloud import Client
 from dwave.system import DWaveSampler, EmbeddingComposite
