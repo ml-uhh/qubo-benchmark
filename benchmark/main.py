@@ -44,14 +44,14 @@ if __name__ == '__main__':
         ('gurobi_dwtime', lambda Q, time_limit: gurobi_minimize(Q, time_limit=dwave_time['time']))
     ]
 
-    problems = os.listdir('./problems')
-    problems = [ os.path.join('./problems', fl) for fl in problems if fl[-4:] == '.npz' ]
+    problems = os.listdir('../problems')
+    problems = [ os.path.join('../problems', fl) for fl in problems if fl[-4:] == '.npz' ]
     
     for prob in problems:
         Qname = os.path.basename(prob)[:-4]
 
         for (solname, sol) in solv_names:
-            if not args.update and os.path.isfile(f'./results/{Qname}_{solname}.pkl'):
+            if not args.update and os.path.isfile(f'../results/{Qname}_{solname}.pkl'):
                 continue
             
             Q = load_problem(prob)
@@ -67,7 +67,7 @@ if __name__ == '__main__':
                 end_time = time.time()
             dwave_time['time'] = end_time - start_time
             G = nx.from_numpy_array(Q)
-            with open(f'./results/{Qname}_{solname}.pkl', 'wb') as fl:
+            with open(f'../results/{Qname}_{solname}.pkl', 'wb') as fl:
                 pickle.dump({
                     'task': Qname,
                     'solver': solname,

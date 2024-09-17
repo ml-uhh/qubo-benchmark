@@ -13,7 +13,7 @@ if __name__ == '__main__':
         if match := rex.match(fl):
             nem = match[1]
             sol = match[2]
-            with open(os.path.join('./results', fl), 'rb') as fld:
+            with open(os.path.join('../results', fl), 'rb') as fld:
                 data = pickle.load(fld)
             ress.append(pd.DataFrame.from_dict({ i: [j] for (i,j) in data.items() }))
             
