@@ -4,23 +4,16 @@ channels:
 dependencies:
   - python=3.12
   - pip
-  - jupyter
+#  - jupyter
   - ca-certificates
   - openssl
-  - qiskit=1.1
-  - pylatexenc
+#  - qiskit=1.1
+#  - pylatexenc
   - certifi
-  - autograd
-  - cvxpy
+#  - autograd
+#  - cvxpy
   - dimod
   - regex
-  - cupy
-  - pip:
-    - dimod
-    - dwave-system
-    - qiskit-algorithms
-    - qiskit
-    - azure-quantum
-    - gurobipy
-    - gurobi-optimods
-    - timedout-decorator
+#  - cupy
+   - pip:
+     - genosolver
