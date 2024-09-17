@@ -17,3 +17,5 @@ dependencies:
 #  - cupy
    - pip:
      - genosolver
+     - gurobypy
+     - gurobi-optimods
