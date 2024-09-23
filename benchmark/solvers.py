@@ -31,7 +31,7 @@ def geno_minimize(Q, time_limit=None):
     best = np.zeros(n)
     for _i in range(10):
         x0 = np.random.rand(n)
-        res = genosolver.minimize(fg, x0, lb=np.zeros_like(x0), ub=np.ones_like(x0), np=np)
+        res = genosolver.minimize(fg, x0, lb=np.zeros_like(x0), ub=np.ones_like(x0), np=np, options={'ls':2, 'max_iter': 200})
         x = res.x
         x = np.round(x)
         if np.dot(x, np.dot(Q, x)) < np.dot(best, np.dot(Q, best)):

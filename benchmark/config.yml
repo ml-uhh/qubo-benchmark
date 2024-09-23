@@ -1,0 +1,9 @@
+solvers:
+#  - gurobi_1s
+#  - gurobi_10s
+  - genosolver
+#  - gurobi
+#  - dwave
+#  - gurobi_dwtime
+instances:
+  - .
