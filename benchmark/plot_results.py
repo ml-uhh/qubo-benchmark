@@ -15,11 +15,12 @@ def get_scores(df, time_limit=3600):
     scores = group['fixed_tm'].apply(lambda x: np.exp(np.sum(np.log(np.maximum(1., x+sh)))/len(x))-sh)
     scores = scores / scores.min()
     scores = scores.reset_index(name='scores').set_index('solver')
-    time_med = group['fixed_tm'].apply('median').reset_index(name='median_time').set_index('solver')
+    time_med = group['time'].apply('median').reset_index(name='median_time').set_index('solver')
+    time_fix_med = group['fixed_tm'].apply('median').reset_index(name='median_fixed_time').set_index('solver')
     solved = group['relative_loss'].apply(lambda x: np.sum(x==0.)/len(x)).reset_index(name='%_solved').set_index('solver')
-    rel_med = group['relative_loss'].apply('median').reset_index(name='rel_loss_med').set_index('solver')
+    rel_med = group['relative_loss'].apply(lambda x: np.median(y) if not (y := x[x>0]).empty else 0.).reset_index(name='rel_loss_med_no0').set_index('solver')
     rel_max = group['relative_loss'].apply('max').reset_index(name='rel_loss_max').set_index('solver')
-    fin = pd.concat((scores, time_med, solved, rel_med, rel_max), axis=1)
+    fin = pd.concat((scores, time_med, time_fix_med, solved, rel_med, rel_max), axis=1)
     return fin
 
 if __name__ == '__main__':
@@ -39,3 +40,17 @@ if __name__ == '__main__':
     res['relative_loss'] = rel_loss
     res = res.sort_values(['task', 'solver'])
     print(res)
+
+    res_noinf = res[res.groupby('task')['loss'].transform('max') != float('inf')]
+    for dp, _dn, fls in os.walk('../results'):
+        tex = get_scores(res[res['folder'].str.contains(dp)]).to_markdown()
+        tex_noinf = get_scores(res_noinf[res_noinf['folder'].str.contains(dp)]).to_markdown()
+        with open(os.path.join(dp, 'README.md'), 'w') as fl:
+            fl.write(f'''\
+{tex}
+
+The following table shows results without calculating problems on which dwave did not find an emedding.
+
+{tex_noinf}''')
+
+    
