@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="qubit" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="30">
+      <data key="d0">(1, 2, 2, 0)</data>
+    </node>
+    <node id="19">
+      <data key="d0">(1, 0, 2, 1)</data>
+    </node>
+    <node id="6">
+      <data key="d0">(0, 1, 1, 0)</data>
+    </node>
+    <node id="32">
+      <data key="d0">(2, 0, 0, 0)</data>
+    </node>
+    <node id="29">
+      <data key="d0">(1, 2, 1, 1)</data>
+    </node>
+    <node id="44">
+      <data key="d0">(2, 2, 0, 0)</data>
+    </node>
+    <node id="35">
+      <data key="d0">(2, 0, 1, 1)</data>
+    </node>
+    <node id="36">
+      <data key="d0">(2, 0, 2, 0)</data>
+    </node>
+    <node id="10">
+      <data key="d0">(0, 2, 0, 0)</data>
+    </node>
+    <node id="38">
+      <data key="d0">(2, 1, 0, 0)</data>
+    </node>
+    <node id="12">
+      <data key="d0">(0, 2, 1, 1)</data>
+    </node>
+    <node id="42">
+      <data key="d0">(2, 1, 2, 0)</data>
+    </node>
+    <node id="14">
+      <data key="d0">(1, 0, 0, 0)</data>
+    </node>
+    <node id="2">
+      <data key="d0">(0, 0, 1, 1)</data>
+    </node>
+    <node id="41">
+      <data key="d0">(2, 1, 1, 1)</data>
+    </node>
+    <node id="47">
+      <data key="d0">(2, 2, 1, 1)</data>
+    </node>
+    <node id="24">
+      <data key="d0">(1, 1, 2, 0)</data>
+    </node>
+    <node id="48">
+      <data key="d0">(2, 2, 2, 0)</data>
+    </node>
+    <node id="20">
+      <data key="d0">(1, 1, 0, 0)</data>
+    </node>
+    <node id="9">
+      <data key="d0">(0, 1, 2, 1)</data>
+    </node>
+    <node id="18">
+      <data key="d0">(1, 0, 2, 0)</data>
+    </node>
+    <node id="28">
+      <data key="d0">(1, 2, 1, 0)</data>
+    </node>
+    <node id="11">
+      <data key="d0">(0, 2, 1, 0)</data>
+    </node>
+    <node id="23">
+      <data key="d0">(1, 1, 1, 1)</data>
+    </node>
+    <node id="34">
+      <data key="d0">(2, 0, 1, 0)</data>
+    </node>
+    <node id="1">
+      <data key="d0">(0, 0, 1, 0)</data>
+    </node>
+    <node id="40">
+      <data key="d0">(2, 1, 1, 0)</data>
+    </node>
+    <node id="4">
+      <data key="d0">(0, 0, 2, 1)</data>
+    </node>
+    <node id="17">
+      <data key="d0">(1, 0, 1, 1)</data>
+    </node>
+    <node id="5">
+      <data key="d0">(0, 1, 0, 0)</data>
+    </node>
+    <node id="27">
+      <data key="d0">(1, 2, 0, 1)</data>
+    </node>
+    <node id="46">
+      <data key="d0">(2, 2, 1, 0)</data>
+    </node>
+    <node id="8">
+      <data key="d0">(0, 1, 2, 0)</data>
+    </node>
+    <node id="13">
+      <data key="d0">(0, 2, 2, 1)</data>
+    </node>
+    <node id="31">
+      <data key="d0">(1, 2, 2, 1)</data>
+    </node>
+    <node id="45">
+      <data key="d0">(2, 2, 0, 1)</data>
+    </node>
+    <node id="7">
+      <data key="d0">(0, 1, 1, 1)</data>
+    </node>
+    <node id="33">
+      <data key="d0">(2, 0, 0, 1)</data>
+    </node>
+    <node id="22">
+      <data key="d0">(1, 1, 1, 0)</data>
+    </node>
+    <node id="37">
+      <data key="d0">(2, 0, 2, 1)</data>
+    </node>
+    <node id="39">
+      <data key="d0">(2, 1, 0, 1)</data>
+    </node>
+    <node id="16">
+      <data key="d0">(1, 0, 1, 0)</data>
+    </node>
+    <node id="0">
+      <data key="d0">(0, 0, 0, 0)</data>
+    </node>
+    <node id="26">
+      <data key="d0">(1, 2, 0, 0)</data>
+    </node>
+    <node id="43">
+      <data key="d0">(2, 1, 2, 1)</data>
+    </node>
+    <node id="3">
+      <data key="d0">(0, 0, 2, 0)</data>
+    </node>
+    <node id="15">
+      <data key="d0">(1, 0, 0, 1)</data>
+    </node>
+    <node id="49">
+      <data key="d0">(2, 2, 2, 1)</data>
+    </node>
+    <node id="21">
+      <data key="d0">(1, 1, 0, 1)</data>
+    </node>
+    <node id="25">
+      <data key="d0">(1, 1, 2, 1)</data>
+    </node>
+    <edge source="30" target="24" />
+    <edge source="30" target="31" />
+    <edge source="19" target="18" />
+    <edge source="19" target="36" />
+    <edge source="19" target="17" />
+    <edge source="6" target="1" />
+    <edge source="6" target="11" />
+    <edge source="6" target="41" />
+    <edge source="6" target="29" />
+    <edge source="6" target="7" />
+    <edge source="32" target="38" />
+    <edge source="32" target="33" />
+    <edge source="32" target="2" />
+    <edge source="32" target="15" />
+    <edge source="29" target="31" />
+    <edge source="29" target="46" />
+    <edge source="29" target="28" />
+    <edge source="29" target="27" />
+    <edge source="44" target="12" />
+    <edge source="44" target="45" />
+    <edge source="44" target="27" />
+    <edge source="44" target="38" />
+    <edge source="35" target="33" />
+    <edge source="35" target="34" />
+    <edge source="35" target="37" />
+    <edge source="35" target="14" />
+    <edge source="35" target="1" />
+    <edge source="36" target="37" />
+    <edge source="36" target="42" />
+    <edge source="10" target="5" />
+    <edge source="10" target="45" />
+    <edge source="38" target="7" />
+    <edge source="38" target="21" />
+    <edge source="38" target="39" />
+    <edge source="12" target="13" />
+    <edge source="12" target="11" />
+    <edge source="42" target="48" />
+    <edge source="42" target="43" />
+    <edge source="42" target="25" />
+    <edge source="14" target="15" />
+    <edge source="14" target="20" />
+    <edge source="2" target="4" />
+    <edge source="2" target="20" />
+    <edge source="2" target="1" />
+    <edge source="41" target="40" />
+    <edge source="41" target="39" />
+    <edge source="41" target="43" />
+    <edge source="41" target="20" />
+    <edge source="47" target="26" />
+    <edge source="47" target="45" />
+    <edge source="47" target="11" />
+    <edge source="47" target="49" />
+    <edge source="47" target="46" />
+    <edge source="24" target="18" />
+    <edge source="24" target="25" />
+    <edge source="48" target="49" />
+    <edge source="48" target="31" />
+    <edge source="20" target="21" />
+    <edge source="20" target="26" />
+    <edge source="9" target="40" />
+    <edge source="9" target="7" />
+    <edge source="9" target="8" />
+    <edge source="9" target="28" />
+    <edge source="28" target="49" />
+    <edge source="28" target="22" />
+    <edge source="23" target="22" />
+    <edge source="23" target="25" />
+    <edge source="23" target="21" />
+    <edge source="23" target="40" />
+    <edge source="23" target="1" />
+    <edge source="34" target="4" />
+    <edge source="34" target="40" />
+    <edge source="34" target="17" />
+    <edge source="40" target="46" />
+    <edge source="4" target="3" />
+    <edge source="4" target="22" />
+    <edge source="17" target="16" />
+    <edge source="17" target="15" />
+    <edge source="5" target="39" />
+    <edge source="5" target="27" />
+    <edge source="5" target="0" />
+    <edge source="27" target="26" />
+    <edge source="46" target="13" />
+    <edge source="8" target="31" />
+    <edge source="8" target="3" />
+    <edge source="8" target="43" />
+    <edge source="7" target="26" />
+    <edge source="33" target="0" />
+    <edge source="22" target="16" />
+    <edge source="22" target="43" />
+    <edge source="37" target="3" />
+    <edge source="37" target="16" />
+    <edge source="0" target="21" />
+    <edge source="3" target="25" />
+  </graph>
+</graphml>
