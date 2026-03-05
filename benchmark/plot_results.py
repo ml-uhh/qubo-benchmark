@@ -28,8 +28,11 @@ if __name__ == '__main__':
     for dp, _dn, fls in os.walk('../results'):
         for fl in fls:
             if fl[-4:] == '.pkl':
-                with open(os.path.join(dp, fl), 'rb') as fld:
-                    data = pickle.load(fld)
+                try:
+                    with open(os.path.join(dp, fl), 'rb') as fld:
+                        data = pickle.load(fld)
+                except Exception as e:
+                    print(fl, e)
                 data['folder'] = dp
                 ress.append(pd.DataFrame.from_dict({ i: [j] for (i,j) in data.items() }))
 
