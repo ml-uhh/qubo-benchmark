@@ -2,6 +2,7 @@ from gurobi_optimods.qubo import solve_qubo
 import gurobipy as gp
 import genosolver
 import numpy as np
+import os
 #import cupy as cnp
 
 def gurobi_minimize(Q, time_limit=None):
@@ -53,7 +54,7 @@ from qiskit_optimization.algorithms import MinimumEigenOptimizer
 from qiskit.primitives import BackendSampler as Sampler
 import qiskit
 
-connection_string = "SubscriptionId=212d1dac-15dc-4f84-851c-6770cf8695f2;ResourceGroupName=AzureQuantum;WorkspaceName=QuboBenchmar;ApiKey=kNn5YGWI2EaSQ4u4JLbcJAidm9rj48WETWwW7WG1pPuH1LnTWcK11BzrtzHY8t8LL1NJ5U9mwyXOAZQUV433EA;QuantumEndpoint=https://germanywestcentral.quantum.azure.com/;"
+connection_string = os.environ["AZURE_QUANTUM_CONNECTION_STRING"]
 workspace = Workspace.from_connection_string(connection_string)
 
 provider = AzureQuantumProvider(workspace)
@@ -92,12 +93,12 @@ def azure_minimize(Q, time_limit=None):
     return result
 """
 
-from dwave.cloud import Client
 from dwave.system import DWaveSampler, EmbeddingComposite
 from dimod import BQM
 
-token = 'DEV-a583c7cbea1c24e2b927d552f7c1f6fe3107d77f'
-dwave_sampler = DWaveSampler(token=token)
+# DWaveSampler reads credentials from the standard Ocean configuration,
+# including the DWAVE_API_TOKEN environment variable.
+dwave_sampler = DWaveSampler()
 
 def dwave_minimize(Q, time_limit=None):
     #sampler = cl.get_solver()

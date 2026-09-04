@@ -19,12 +19,12 @@ def load_problem(fl: str)-> np.ndarray:
     return Q
 
 
-from dwave.cloud import Client
 from dwave.system import DWaveSampler, EmbeddingComposite
 from dimod import BQM
 
-token = 'DEV-ea6698e8e6c12cc4cd9a2adc4fe946f31fe99d36'
-dwave_sampler = DWaveSampler(token=token)
+# DWaveSampler reads credentials from the standard Ocean configuration,
+# including the DWAVE_API_TOKEN environment variable.
+dwave_sampler = DWaveSampler()
 
 def dwave_minimize(Q, time_limit=None):
     #sampler = cl.get_solver()
