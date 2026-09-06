@@ -1,0 +1,8 @@
+metric,value
+instances,1386
+comparable_results,1377
+classical_better,1177
+equal,200
+dwave_better,0
+dwave_no_result,9
+mean_signed_objective_difference_percent,-0.7716365440712395
