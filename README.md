@@ -1,7 +1,20 @@
 # QUBO benchmark
 
-This repository contains QUBO instances, solver wrappers, and recorded results
-used to compare classical optimization methods with D-Wave quantum annealing.
+A QUBO describes an optimization problem using binary decisions: each variable
+is either 0 or 1, and the objective assigns a cost to individual choices and
+pairs of choices. Scheduling, network design, and many other discrete problems
+can be written in this form.
+
+This repository provides more than 1,900 benchmark instances and their recorded
+results, a self-contained classical solver, and a solver interface for D-Wave
+quantum annealing. Together, they support direct experiments on the same QUBO
+problems and comparisons of the returned objective values.
+
+For the 1,377 S28/QAC instances with comparable results, the classical solver
+found a lower objective value in 1,177 cases and the same value in 200 cases.
+D-Wave did not return a result for nine additional instances.
+
+## Problem definition and file format
 
 For a matrix \(Q\), every instance asks for
 
@@ -57,14 +70,12 @@ The command prints a JSON record containing the objective, solver time, and
 basic optimization counters. The optional output file stores the binary vector
 and the same metadata.
 
-The S28/QAC comparison is recorded in
+The complete S28/QAC comparison is recorded in
 `results/s28-qac/classical_reference_results.csv`, with aggregate counts in
 `results/s28-qac/classical_reference_summary.csv`. Each published classical
 value is the best result from independent seeded runs; every run had a
 three-second solver budget. The per-instance file records the number of
-completed runs and campaigns. Among 1,377 instances with comparable results,
-the classical result was lower on 1,177 and equal on 200; D-Wave did not return
-a result on nine additional instances. The signed percentage is defined as
+completed runs and campaigns. The signed percentage is defined as
 `100 * (classical - D-Wave) / abs(D-Wave)`, so a negative value means that the
 classical objective was lower.
 
