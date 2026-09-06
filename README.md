@@ -120,10 +120,12 @@ repository.
 python -m unittest discover -s tests -v
 ```
 
-## Acknowledgement
+## Authors
 
-Publications containing results obtained with the D-Wave Advantage™ System
-JUPSI should include the acknowledgement required by JUNIQ:
+- Sören Laue, Machine Learning Group, Universität Hamburg
+- Tomislav Prusina, Machine Learning Group, Universität Hamburg
+
+## Acknowledgements
 
 > The authors gratefully acknowledge the Jülich Supercomputing Centre
 > ([https://www.fz-juelich.de/jsc](https://www.fz-juelich.de/jsc)) for funding
