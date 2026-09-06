@@ -5,9 +5,9 @@ used to compare classical optimization methods with D-Wave quantum annealing.
 
 For a matrix \(Q\), every instance asks for
 
-\[
+$$
     \min_{x \in \{0,1\}^n} x^\mathsf{T}Qx.
-\]
+$$
 
 Lower objective values are better. Instance files use NumPy's compressed NPZ
 format with coordinate arrays `i`, `j`, and `Jij`. When the stored coordinate
