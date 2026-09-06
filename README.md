@@ -1,7 +1,20 @@
 # QUBO benchmark
 
-This repository contains QUBO instances, solver wrappers, and recorded results
-used to compare classical optimization methods with D-Wave quantum annealing.
+A QUBO describes an optimization problem using binary decisions: each variable
+is either 0 or 1, and the objective assigns a cost to individual choices and
+pairs of choices. Scheduling, network design, and many other discrete problems
+can be written in this form.
+
+This repository provides more than 1,900 benchmark instances and their recorded
+results, a self-contained classical solver, and a solver interface for D-Wave
+quantum annealing. Together, they support direct experiments on the same QUBO
+problems and comparisons of the returned objective values.
+
+Across all 1,856 instances with comparable results, the classical solver found
+a lower objective value in 1,280 cases (69.0%) and the same value in 576 cases
+(31.0%). D-Wave did not return a result for 56 additional instances.
+
+## Problem definition and file format
 
 For a matrix \(Q\), every instance asks for
 
@@ -31,6 +44,19 @@ The instance data originate from the cited sources. The MIT license in this
 repository covers the software; third-party data remain subject to their
 original terms.
 
+## Results
+
+The following table summarizes the best recorded objective values. “Better”
+means that the solver returned the lower objective value.
+
+| Instance family | Instances | Classical better | Equal | D-Wave better | No D-Wave result |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `compsup` | 480 | 80 | 360 | 0 | 40 |
+| `random` | 23 | 13 | 7 | 0 | 3 |
+| `s28-qac` | 1,386 | 1,177 | 200 | 0 | 9 |
+| `QPLIB` | 23 | 10 | 9 | 0 | 4 |
+| **All** | **1,912** | **1,280** | **576** | **0** | **56** |
+
 ## Classical reference solver
 
 `benchmark/simple_solver.py` implements several self-contained QUBO heuristics.
@@ -57,14 +83,12 @@ The command prints a JSON record containing the objective, solver time, and
 basic optimization counters. The optional output file stores the binary vector
 and the same metadata.
 
-The S28/QAC comparison is recorded in
+The complete S28/QAC comparison is recorded in
 `results/s28-qac/classical_reference_results.csv`, with aggregate counts in
 `results/s28-qac/classical_reference_summary.csv`. Each published classical
 value is the best result from independent seeded runs; every run had a
 three-second solver budget. The per-instance file records the number of
-completed runs and campaigns. Among 1,377 instances with comparable results,
-the classical result was lower on 1,177 and equal on 200; D-Wave did not return
-a result on nine additional instances. The signed percentage is defined as
+completed runs and campaigns. The signed percentage is defined as
 `100 * (classical - D-Wave) / abs(D-Wave)`, so a negative value means that the
 classical objective was lower.
 
