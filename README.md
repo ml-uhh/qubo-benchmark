@@ -120,6 +120,20 @@ repository.
 python -m unittest discover -s tests -v
 ```
 
+## Authors
+
+- [Sören Laue](https://www.inf.uni-hamburg.de/en/inst/ab/ml/people/laue.html), Principal Investigator
+- [Tomislav Prusina](https://www.inf.uni-hamburg.de/en/inst/ab/ml/people/prusina.html), PhD Student
+- [Mark Blacher](https://www.ti2.uni-jena.de/44/mark-blacher), PhD Student
+
+## Acknowledgements
+
+> The authors gratefully acknowledge the Jülich Supercomputing Centre
+> ([https://www.fz-juelich.de/jsc](https://www.fz-juelich.de/jsc)) for funding
+> this project by providing computing time on the D-Wave Advantage™ System
+> JUPSI through the Jülich UNified Infrastructure for Quantum computing
+> (JUNIQ).
+
 ## License
 
 The software is released under the [MIT License](LICENSE).
