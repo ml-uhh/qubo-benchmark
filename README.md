@@ -120,6 +120,17 @@ repository.
 python -m unittest discover -s tests -v
 ```
 
+## Acknowledgement
+
+Publications containing results obtained with the D-Wave Advantage™ System
+JUPSI should include the acknowledgement required by JUNIQ:
+
+> The authors gratefully acknowledge the Jülich Supercomputing Centre
+> ([https://www.fz-juelich.de/jsc](https://www.fz-juelich.de/jsc)) for funding
+> this project by providing computing time on the D-Wave Advantage™ System
+> JUPSI through the Jülich UNified Infrastructure for Quantum computing
+> (JUNIQ).
+
 ## License
 
 The software is released under the [MIT License](LICENSE).
