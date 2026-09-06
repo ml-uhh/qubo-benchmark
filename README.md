@@ -40,9 +40,9 @@ The instance families are stored below `instances/`:
   Lidar in [*Scaling Advantage in Approximate Optimization with Quantum
   Annealing*](https://doi.org/10.1103/PhysRevLett.134.160601).
 
-The instance data originate from the cited sources. The MIT license in this
-repository covers the software; third-party data remain subject to their
-original terms.
+For reproducibility, this repository includes the benchmark instances, solver
+code, run instructions, and recorded results used in the comparisons. The MIT
+license covers the software; third-party datasets retain their original terms.
 
 ## Results
 
