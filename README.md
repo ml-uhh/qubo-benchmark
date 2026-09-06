@@ -122,8 +122,9 @@ python -m unittest discover -s tests -v
 
 ## Authors
 
-- Sören Laue, Machine Learning Group, Universität Hamburg
-- Tomislav Prusina, Machine Learning Group, Universität Hamburg
+- [Sören Laue](https://www.inf.uni-hamburg.de/en/inst/ab/ml/people/laue.html), Principal Investigator
+- [Tomislav Prusina](https://www.inf.uni-hamburg.de/en/inst/ab/ml/people/prusina.html), PhD Student
+- [Mark Blacher](https://www.ti2.uni-jena.de/44/mark-blacher), PhD Student
 
 ## Acknowledgements
 
