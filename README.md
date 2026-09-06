@@ -3,11 +3,11 @@
 This repository contains QUBO instances, solver wrappers, and recorded results
 used to compare classical optimization methods with D-Wave quantum annealing.
 
-For a matrix \(Q\), every instance asks for
+For a matrix $Q$, every instance asks for
 
-\[
-    \min_{x \in \{0,1\}^n} x^\mathsf{T}Qx.
-\]
+$$
+\min_{x \in \{0,1\}^n} x^\mathsf{T} Q x.
+$$
 
 Lower objective values are better. Instance files use NumPy's compressed NPZ
 format with coordinate arrays `i`, `j`, and `Jij`. When the stored coordinate
@@ -23,7 +23,7 @@ The instance families are stored below `instances/`:
 - `Spin-Glass`: spin-glass instances.
 - `QPLIB`: selected QPLIB instances converted to the repository's QUBO format.
 - `s28-qac`: 1,386 Sidon-28 spin-glass instances, 126 at each size level
-  \(L=5,\ldots,15\). This family follows the instances used by Muñoz-Bauza and
+  $L=5,\ldots,15$. This family follows the instances used by Muñoz-Bauza and
   Lidar in [*Scaling Advantage in Approximate Optimization with Quantum
   Annealing*](https://doi.org/10.1103/PhysRevLett.134.160601).
 
